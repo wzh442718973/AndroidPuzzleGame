@@ -1,4 +1,4 @@
-package dragosholban.com.androidpuzzlegame;
+package com.luminous.luminescent.celebrity;
 
 import android.view.MotionEvent;
 import android.view.View;

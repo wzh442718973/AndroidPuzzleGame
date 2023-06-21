@@ -1,4 +1,4 @@
-package dragosholban.com.androidpuzzlegame;
+package com.luminous.luminescent.celebrity;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("dragosholban.com.androidpuzzlegame", appContext.getPackageName());
+        assertEquals("com.luminous.luminescent.celebrity", appContext.getPackageName());
     }
 }
