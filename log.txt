@@ -1,0 +1,202 @@
+开始自动混淆项目代码扫描文件中。。。。。。
+
+
+混淆项目路径：/Volumes/XX/AndroidPuzzleGame
+新文件 <-> 现有文件 : t_styles_launcher.xml      ic_image_black_24dp.xml
+新文件 <-> 现有文件 : o_settings_photo.xml      grid_element.xml
+新文件 <-> 现有文件 : SOGrid.java      ExampleInstrumentedTest.java
+新文件 <-> 现有文件 : vlq_news_layout.xml      layout_main.xml
+新文件 <-> 现有文件 : v_grid_black.xml      ic_launcher_background.xml
+新文件 <-> 现有文件 : 1717.jpg      1717.jpg
+新文件 <-> 现有文件 : AndroidManifest.xml      AndroidManifest.xml
+新文件 <-> 现有文件 : 7799.jpg      7799.jpg
+新文件 <-> 现有文件 : g_android.xml      ic_photo_camera_black_24dp.xml
+新文件 <-> 现有文件 : 2233.jpg      2233.jpg
+新文件 <-> 现有文件 : g_styles_photo.xml      layout_player.xml
+新文件 <-> 现有文件 : 1010.jpg      1010.jpg
+新文件 <-> 现有文件 : mdu_adapter_paths.xml      main_mode.xml
+新文件 <-> 现有文件 : 4455.jpg      4455.jpg
+新文件 <-> 现有文件 : adapter_android.jpg      photo.jpg
+新文件 <-> 现有文件 : colors.xml      colors.xml
+新文件 <-> 现有文件 : 8888.jpg      8888.jpg
+新文件 <-> 现有文件 : 5555.jpg      5555.jpg
+新文件 <-> 现有文件 : gyo_listener.xml      ic_launcher_foreground.xml
+新文件 <-> 现有文件 : 1212.jpg      1212.jpg
+新文件 <-> 现有文件 : strings.xml      strings.xml
+新文件 <-> 现有文件 : 9999.jpg      9999.jpg
+新文件 <-> 现有文件 : 5588.jpg      5588.jpg
+新文件 <-> 现有文件 : styles.xml      styles.xml
+新文件 <-> 现有文件 : adapter_player.jpg      puzzle_frame.jpg
+新文件 <-> 现有文件 : 1313.jpg      1313.jpg
+新文件 <-> 现有文件 : g_example_grid.xml      file_paths.xml
+新文件 <-> 现有文件 : modity_instrumented.jpg      splash.jpg
+新文件 <-> 现有文件 : XBVLogin.java      ImageAdapter.java
+新文件 <-> 现有文件 : 6666.jpg      6666.jpg
+新文件 <-> 现有文件 : HUHMainSettingsActivity.java      MainActivity.java
+新文件 <-> 现有文件 : 1414.jpg      1414.jpg
+新文件 <-> 现有文件 : image_build.jpg      table_background.jpg
+新文件 <-> 现有文件 : SCWSplashActivity.java      PlayerActivity.java
+新文件 <-> 现有文件 : 1515.jpg      1515.jpg
+新文件 <-> 现有文件 : FListener.java      PuzzlePiece.java
+新文件 <-> 现有文件 : 6699.jpg      6699.jpg
+新文件 <-> 现有文件 : 1616.jpg      1616.jpg
+新文件 <-> 现有文件 : EZStyles.java      TouchListener.java
+新文件 <-> 现有文件 : 7777.jpg      7777.jpg
+新文件 <-> 现有文件 : IJUEditSplash.java      ExampleUnitTest.java
+新文件 <-> 现有文件 : listener_splash.png      ic_launcher.png
+新文件 <-> 现有文件 : piece_table.png      ic_launcher_round.png
+新文件 <-> 现有文件 : listener_splash.png      ic_launcher.png
+新文件 <-> 现有文件 : piece_table.png      ic_launcher_round.png
+新文件 <-> 现有文件 : listener_splash.png      ic_launcher.png
+新文件 <-> 现有文件 : piece_table.png      ic_launcher_round.png
+新文件 <-> 现有文件 : listener_splash.png      ic_launcher.png
+新文件 <-> 现有文件 : piece_table.png      ic_launcher_round.png
+新文件 <-> 现有文件 : listener_splash.png      ic_launcher.png
+新文件 <-> 现有文件 : piece_table.png      ic_launcher_round.png
+
+
+自动为您开启5个线程进行混淆。。。。。。。
+开始自动清理源代码中的注释。。。。。。
+
+
+
+
+
+
+
+正在自动获取分析过滤不能修改函数名称集合。。。。。
+
+
+开始提取所有源文件中的类名并生成新类名。。。。。。
+类名: ExampleUnitTest <---替换为---> IJUEditSplash
+类名: ExampleInstrumentedTest <---替换为---> SOGrid
+类名: ImageAdapter <---替换为---> XBVLogin
+类名: MainActivity <---替换为---> HUHMainSettingsActivity
+类名: PlayerActivity <---替换为---> SCWSplashActivity
+类名: PuzzlePiece <---替换为---> FListener
+类名: TouchListener <---替换为---> EZStyles
+
+
+开始替换所有源文件中的类名。。。。。。
+
+
+
+混淆类名耗时：0.02379012107849121秒
+
+
+混淆图片xml资源耗时：0.02542710304260254秒
+
+
+开始混淆枚举。。。。。。。
+
+
+开始提取所有协议名并生成新协议名。。。。。。
+
+
+开始翻新xib、storyboard控件ID值以及布局微调。。。。。。
+
+
+开始多语言文件的key名称。。。。。。
+
+
+开始自动检测类继承关系。。。。。。
+
+
+开始自动检测统计所有文件中属性信息。。。。。。
+
+
+开始自动修改sks资源名称。。。。。。。
+
+sks资源修改结束
+
+开始打乱函数定义顺序。。。。。。。
+100%👌
+
+开始提取分析源文件中函数名称。。。。。。。
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: getCount
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: getItem
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: getItemId
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: getView
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: run
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: onPostExecute
+文件: [旧 ImageAdapter <--> 新 XBVLogin]    函数名称: getPicFromAsset
+文件: [旧 MainActivity <--> 新 HUHMainSettingsActivity]    函数名称: onCreate
+文件: [旧 MainActivity <--> 新 HUHMainSettingsActivity]    函数名称: onCreateOptionsMenu
+文件: [旧 MainActivity <--> 新 HUHMainSettingsActivity]    函数名称: onImageFromCameraClick
+文件: [旧 MainActivity <--> 新 HUHMainSettingsActivity]    函数名称: onActivityResult
+文件: [旧 MainActivity <--> 新 HUHMainSettingsActivity]    函数名称: onImageFromGalleryClick
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: onBackPressed
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: onClick
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: onCreate
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: setPicFromAsset
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: splitImage
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: checkGameOver
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: isGameOver
+文件: [旧 PlayerActivity <--> 新 SCWSplashActivity]    函数名称: setPicFromPath
+文件: [旧 TouchListener <--> 新 EZStyles]    函数名称: onTouch
+文件: [旧 TouchListener <--> 新 EZStyles]    函数名称: sendViewToBack
+
+
+开始混淆函数里面局部变量名称。。。。。。。
+
+开始扰乱改变函数里面执行顺序。。。。。。。
+100%👌
+
+
+开始自动生成垃圾代码文件。。。。。。。
+100%👌
+
+
+开始自动融合生成的垃圾代码文件。。。。。。
+100%👌
+
+
+开始自动随机生成属性并插入头文件和源文件。。。。。。。
+[old: ExampleUnitTest -> new: IJUEditSplash] insert  private boolean has_SendName = false;
+String centerRegister_lString;
+
+[old: ExampleInstrumentedTest -> new: SOGrid] insert  float manifestHome_max = 0.0f;
+private HashMap<String,Double> buildMainModeMap;
+ArrayList<Double> playerGameFrame_95List;
+
+[old: ImageAdapter -> new: XBVLogin] insert  private HashMap<String,Integer> listenerTableGradlew_dict;
+private float optionsCanPathsMin = 0.0f;
+HashMap<String,Boolean> touchModity_map;
+private boolean can_FileOk = false;
+
+[old: MainActivity -> new: HUHMainSettingsActivity] insert  private ArrayList<Float> photoUnitArray;
+int listenerGradleFlag = 0;
+private long androidLocal_0gAsset_sum = 0;
+private double buildPoiMargin = 0.0;
+
+[old: PlayerActivity -> new: SCWSplashActivity] insert  int hasInstrumentedPhotoSum = 0;
+private double fromPathsPlayer_margin = 0.0;
+private HashMap<String,Double> tablePuzzlePressed_map;
+
+[old: PuzzlePiece -> new: FListener] insert  ArrayList<String> androidInstrumentedList;
+boolean canOkContext = false;
+private long min1RoundNews_flag = 0;
+
+[old: TouchListener -> new: EZStyles] insert  private int editManifestTest_count = 0;
+long centerPieceNewsFlag = 0;
+int ageCountGameFlag = 0;
+
+
+
+开始自动加密混淆字符串。。。。。。。
+
+
+开始融合并调用生成的垃圾代码文件函数或者类。。。。。。。
+100%👌
+
+
+开始插入混淆函数并在现有函数体里面自动插入混淆函数调用语句。。。。。。。
+100%👌
+
+
+开始自动插入头文件混淆函数定义语句。。。。。。。
+100%👌
+
+
+开始生成新混淆源文件。。。。。。。
+100%👌

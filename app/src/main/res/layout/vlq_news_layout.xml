@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.luminous.luminescent.celebrity.MainActivity"
-    android:background="@drawable/table_background">
+    tools:context="com.luminous.luminescent.celebrity.HUHMainSettingsActivity"
+    android:background="@drawable/image_build">
 
     <GridView
         android:id="@+id/grid"
@@ -34,7 +34,7 @@
         android:layout_marginRight="16dp"
         android:clickable="true"
         android:onClick="onImageFromCameraClick"
-        android:src="@drawable/ic_photo_camera_black_24dp"
+        android:src="@drawable/g_android"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -48,7 +48,7 @@
         android:layout_marginRight="8dp"
         android:clickable="true"
         android:onClick="onImageFromGalleryClick"
-        android:src="@drawable/ic_image_black_24dp"
+        android:src="@drawable/t_styles_launcher"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cameraButton" />
