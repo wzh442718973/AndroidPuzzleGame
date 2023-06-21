@@ -1,5 +1,6 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -15,7 +16,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -29,16 +33,31 @@ import java.util.Random;
 
 import static java.lang.Math.abs;
 
-public class PuzzleActivity extends AppCompatActivity {
+public class PlayerActivity extends AppCompatActivity {
     ArrayList<PuzzlePiece> pieces;
     String mCurrentPhotoPath;
     String mCurrentPhotoUri;
 
+    private int row_block = 4;
+    private int col_block = 3;
+
+    private long starttime = 0;
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setTitle("Exit Games!!!").setMessage("Are you sure you are not continuing？").setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        }).setPositiveButton("Cancel", null).create().show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_puzzle);
-
+        setContentView(R.layout.layout_player);
+        starttime = System.currentTimeMillis();
         final RelativeLayout layout = findViewById(R.id.layout);
         final ImageView imageView = findViewById(R.id.imageView);
 
@@ -46,6 +65,21 @@ public class PuzzleActivity extends AppCompatActivity {
         final String assetName = intent.getStringExtra("assetName");
         mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
         mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
+
+        String model = intent.getStringExtra("model");
+        if ("simple".equals(model)) {
+            this.row_block = 4;
+            this.col_block = 3;
+        } else if ("hard".equals(model)) {
+            this.row_block = 5;
+            this.col_block = 4;
+        } else if ("expert".equals(model)) {
+            this.row_block = 6;
+            this.col_block = 5;
+        } else {
+            this.row_block = 4;
+            this.col_block = 3;
+        }
 
         // run image related code after the view was laid out
         // to have all dimensions calculated
@@ -60,7 +94,7 @@ public class PuzzleActivity extends AppCompatActivity {
                     imageView.setImageURI(Uri.parse(mCurrentPhotoUri));
                 }
                 pieces = splitImage();
-                TouchListener touchListener = new TouchListener(PuzzleActivity.this);
+                TouchListener touchListener = new TouchListener(PlayerActivity.this);
                 // shuffle pieces order
                 Collections.shuffle(pieces);
                 for (PuzzlePiece piece : pieces) {
@@ -92,7 +126,7 @@ public class PuzzleActivity extends AppCompatActivity {
             int photoH = bmOptions.outHeight;
 
             // Determine how much to scale down the image
-            int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+            int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
 
             is.reset();
 
@@ -111,8 +145,8 @@ public class PuzzleActivity extends AppCompatActivity {
 
     private ArrayList<PuzzlePiece> splitImage() {
         int piecesNumber = 12;
-        int rows = 4;
-        int cols = 3;
+//        int rows = 5;
+//        int cols = 5;
 
         ImageView imageView = findViewById(R.id.imageView);
         ArrayList<PuzzlePiece> pieces = new ArrayList<>(piecesNumber);
@@ -134,14 +168,14 @@ public class PuzzleActivity extends AppCompatActivity {
         Bitmap croppedBitmap = Bitmap.createBitmap(scaledBitmap, abs(scaledBitmapLeft), abs(scaledBitmapTop), croppedImageWidth, croppedImageHeight);
 
         // Calculate the with and height of the pieces
-        int pieceWidth = croppedImageWidth/cols;
-        int pieceHeight = croppedImageHeight/rows;
+        int pieceWidth = croppedImageWidth / this.col_block;
+        int pieceHeight = croppedImageHeight / this.row_block;
 
         // Create each bitmap piece and add it to the resulting array
         int yCoord = 0;
-        for (int row = 0; row < rows; row++) {
+        for (int row = 0; row < this.row_block; row++) {
             int xCoord = 0;
-            for (int col = 0; col < cols; col++) {
+            for (int col = 0; col < this.col_block; col++) {
                 // calculate offset for each piece
                 int offsetX = 0;
                 int offsetY = 0;
@@ -179,23 +213,23 @@ public class PuzzleActivity extends AppCompatActivity {
                     path.lineTo(pieceBitmap.getWidth(), offsetY);
                 }
 
-                if (col == cols - 1) {
+                if (col == this.col_block - 1) {
                     // right side piece
                     path.lineTo(pieceBitmap.getWidth(), pieceBitmap.getHeight());
                 } else {
                     // right bump
                     path.lineTo(pieceBitmap.getWidth(), offsetY + (pieceBitmap.getHeight() - offsetY) / 3);
-                    path.cubicTo(pieceBitmap.getWidth() - bumpSize,offsetY + (pieceBitmap.getHeight() - offsetY) / 6, pieceBitmap.getWidth() - bumpSize, offsetY + (pieceBitmap.getHeight() - offsetY) / 6 * 5, pieceBitmap.getWidth(), offsetY + (pieceBitmap.getHeight() - offsetY) / 3 * 2);
+                    path.cubicTo(pieceBitmap.getWidth() - bumpSize, offsetY + (pieceBitmap.getHeight() - offsetY) / 6, pieceBitmap.getWidth() - bumpSize, offsetY + (pieceBitmap.getHeight() - offsetY) / 6 * 5, pieceBitmap.getWidth(), offsetY + (pieceBitmap.getHeight() - offsetY) / 3 * 2);
                     path.lineTo(pieceBitmap.getWidth(), pieceBitmap.getHeight());
                 }
 
-                if (row == rows - 1) {
+                if (row == this.row_block - 1) {
                     // bottom side piece
                     path.lineTo(offsetX, pieceBitmap.getHeight());
                 } else {
                     // bottom bump
                     path.lineTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 3 * 2, pieceBitmap.getHeight());
-                    path.cubicTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 6 * 5,pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 6, pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 3, pieceBitmap.getHeight());
+                    path.cubicTo(offsetX + (pieceBitmap.getWidth() - offsetX) / 6 * 5, pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 6, pieceBitmap.getHeight() - bumpSize, offsetX + (pieceBitmap.getWidth() - offsetX) / 3, pieceBitmap.getHeight());
                     path.lineTo(offsetX, pieceBitmap.getHeight());
                 }
 
@@ -247,8 +281,7 @@ public class PuzzleActivity extends AppCompatActivity {
     private int[] getBitmapPositionInsideImageView(ImageView imageView) {
         int[] ret = new int[4];
 
-        if (imageView == null || imageView.getDrawable() == null)
-            return ret;
+        if (imageView == null || imageView.getDrawable() == null) return ret;
 
         // Get image dimensions
         // Get image matrix values and place them in an array
@@ -276,8 +309,8 @@ public class PuzzleActivity extends AppCompatActivity {
         int imgViewW = imageView.getWidth();
         int imgViewH = imageView.getHeight();
 
-        int top = (int) (imgViewH - actH)/2;
-        int left = (int) (imgViewW - actW)/2;
+        int top = (int) (imgViewH - actH) / 2;
+        int left = (int) (imgViewW - actW) / 2;
 
         ret[0] = left;
         ret[1] = top;
@@ -287,7 +320,24 @@ public class PuzzleActivity extends AppCompatActivity {
 
     public void checkGameOver() {
         if (isGameOver()) {
-            finish();
+            long time = System.currentTimeMillis() - starttime;
+            time = time / 1000;
+            int min = (int) (time / 60);
+            int sec = (int) (time % 60);
+
+            String msg = "";
+            if (min > 0) {
+                msg = String.format("Time Used: %d:%d", min, sec);
+            } else {
+                msg = String.format("Time Used: %d second", sec);
+            }
+
+            new AlertDialog.Builder(this).setTitle(R.string.app_name).setMessage(msg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            }).create().show();
         }
     }
 
@@ -314,7 +364,7 @@ public class PuzzleActivity extends AppCompatActivity {
         int photoH = bmOptions.outHeight;
 
         // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+        int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
 
         // Decode the image file into a Bitmap sized to fill the View
         bmOptions.inJustDecodeBounds = false;
@@ -349,7 +399,6 @@ public class PuzzleActivity extends AppCompatActivity {
     public static Bitmap rotateImage(Bitmap source, float angle) {
         Matrix matrix = new Matrix();
         matrix.postRotate(angle);
-        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
-                matrix, true);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
     }
 }

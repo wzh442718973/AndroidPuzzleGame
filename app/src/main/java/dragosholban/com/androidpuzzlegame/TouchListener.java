@@ -12,9 +12,9 @@ import static java.lang.StrictMath.abs;
 public class TouchListener implements View.OnTouchListener {
     private float xDelta;
     private float yDelta;
-    private PuzzleActivity activity;
+    private PlayerActivity activity;
 
-    public TouchListener(PuzzleActivity activity) {
+    public TouchListener(PlayerActivity activity) {
         this.activity = activity;
     }
 
